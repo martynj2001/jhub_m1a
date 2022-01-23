@@ -9,3 +9,7 @@ The 4 Ds - Distence, Duration, Destination and Demand
 
 A Basic Logistics Calculator
 
+v1 - focus on ES Mean Distence between Failures (MDBF) - note that the values used are only representative of the actual SOHB values.
+
+v2 - focus on Logistics, simple planning tools for Armd BG, iLESPA values are completly made up and do not rtepresent actual SOHB plannign data.
+
