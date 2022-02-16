@@ -1,11 +1,80 @@
 # jhub_m1a
 
 JHub Module 1a - Creating a Website
+-----------------------------------
 
-The JHub assignment is to create a web page on Codepen.io (you will need to register). The web page should be unclassified and easy to use, it should have NO back-end (i.e. no database). It should contain both pictures and text, have at least 3 different styles formatted using CSS, and require at least some javascript (i.e. perform some logical function). It should also look nice across a variety of different sizes of screens (i.e. mobile/tablet). The website should have a "defence context." An example of an appropriate project would be: an aircraft ordering form that calculated a price dependent upon a number of features which the user had the option to choose. The mark-scheme is attached on the right-side of this page, and we expect completion of the project to take around 10 hours. It is important that you run your code through https://validator.w3.org/nu validator to check for errors because the markers will. 
+1. Create web page on codepen.ion with a 'Defence Context'.
+2. Unclassified & easy to use - no back end.
+3. Contain images and text.
+4. Different formated CSS styles.
+5. Use of JS tp perform some logical function.
+6. Responsive accros mulitple media types.
+7. Code checked through https://validator.w3.org/nu.
 
+A Basic CSS Calculator
+-----------------------
 
-The 4 Ds - Distence, Duration, Destination and Demand
+v1 - focus on ES Mean Distence between Failures (MDBF) - note that the values used are only representative of the actual SOHB values.
 
-A Basic Logistics Calculator
+v2 - focus on Logistics, simple planning tools for Armd BG, iLESPA values are completly made up and do not rtepresent actual SOHB plannign data.
+
+ES DATA:
+--------
+
+							  Number of equipment types x anticipated usage (KM's)
+Probable number of failures = ----------------------------------------------------
+							 		   Mean value between failure (MVBF)
+
+MVBF Data:
+-----------
+LR: 20,700
+SV Utilty: 157,069
+CR2: 564
+WR: 1247
+
+LOGISTICS DATA:
+---------------
+
+Combat Arms CSups calculations:
+	
+	Multiple each yardstick by the number of sub-units of the type engaged in the action.
+	
+	Sum all natures for all sub-units.
+	
+	Mulitple the product of step 2 by the estimated duration of the action in hours.
+	
+CSups (Personnel): (per person per day)
+---------------------------------------
+
+	Food: 1 x ration pack
+	Water (Drinking): 5 litres
+	Water (Cooking): 10 litres (per person)
+					 50 litres (per subunit)
+					
+	350 ration packs per pallet.
+	792 ltres of water per pallet.	
+	
+CSups (Fuel & Ammo):
+--------------------
+
+Armd Sqn: 
+
+	Ammo Pallets (per hour): 2
+	Fuel (Litres): 1000 (0.2 UST)
+
+Armd Inf:
+
+	Ammo Pallets (per hour): 5
+	Fuel (Litres): 500 (0.2 UST)
+	
+Light Inf:
+
+	Ammo Pallets (per hour): 3
+	Fuel (Litres): 250 (0.2 UST)
+	
+Aviaiton:
+
+	Ammo Pallets (per hour): 4
+	Fuel (Litres): 3000 (0.2 UST)
+
 
