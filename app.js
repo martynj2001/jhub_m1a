@@ -22,7 +22,7 @@ pers.addEventListener('input', function(e){
         e.preventDefault();
         const persCon = calcPerson(pers.elements.pers_num.value);
         //console.log (persCon);
-        displayPersCalc(persCon);
+        //displayPersCalc(persCon);
     }
     
     
