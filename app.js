@@ -10,24 +10,24 @@ const tableEquip = document.querySelector("#tableEquip");
 let noDays = 0;
 let equip = {
 		// Make this an empty objectand populate as we go.
-		su_1: 	"",
-		su_2: 	"",
-		su_3: 	"",
-		fuelSu_1:	0,
-		ammoSu_1:	0,
-		fuelSu_2:	0,
-		ammoSu_2:	0,
-		fuelSu_3:	0,
-		ammoSu_3:	0,
-		ammoTotal:	0,
-		fuelTotal:	0,
-		total:		0
+		// su_1: 	"",
+		// su_2: 	"",
+		// su_3: 	"",
+		// fuelSu_1:	0,
+		// ammoSu_1:	0,
+		// fuelSu_2:	0,
+		// ammoSu_2:	0,
+		// fuelSu_3:	0,
+		// ammoSu_3:	0,
+		// ammoTotal:	0,
+		// fuelTotal:	0,
+		// total:		0
 };
 
 duration.addEventListener('input', function(){
     noDays = duration.value;
     console.log(`Mission Duration: ${noDays}`);
-    displayPersCalc();
+    //displayPersCalc();
 });
 
 pers.addEventListener('input', function(e){
@@ -37,7 +37,7 @@ pers.addEventListener('input', function(e){
         e.preventDefault();
         const persCon = calcPerson(pers.elements.pers_num.value);
         //console.log (persCon);
-        //displayPersCalc(persCon);
+        displayPersCalc(persCon);
     }
 });
 
@@ -46,11 +46,12 @@ suData.addEventListener("input", function(e){
         alert("No Mission duration set!");
     } else {
         e.preventDefault();
-		equip.su_1 = 0;
-		equip.su_2 = 0;
-		equip.su_3 = 0;
+        console.dir(suData);
+		// equip.su_1 = 0;
+		// equip.su_2 = 0;
+		// equip.su_3 = 0;
 
-        calcSU(equip);
+        //calcSU(equip);
     }
 });
 
