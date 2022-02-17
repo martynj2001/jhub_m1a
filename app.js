@@ -46,12 +46,13 @@ suData.addEventListener("input", function(e){
         alert("No Mission duration set!");
     } else {
         e.preventDefault();
-        console.dir(suData);
-		// equip.su_1 = 0;
-		// equip.su_2 = 0;
-		// equip.su_3 = 0;
-        let su_1 = suData.elements.su_1.value;
-        console.log(su_1);//calcSU(equip);
+        //console.dir(suData);
+		
+        equip.su_1 = suData.elements.su_1.value;
+		equip.su_2 = suData.elements.su_2.value;
+		equip.su_3 = suData.elements.su_3.value;
+		calcBG(equip);
+        console.log(equip);
     }
 });
 
@@ -89,11 +90,30 @@ function calcPerson(noPers) {
     return person;
 }
 
-function calcSU(su, suData){
+function calcSU(su){
+	
+	subunit = {};
 	
 	switch (su){
-		case "Armoured":
-			
+		case "ARM":
+			subunit.fuel = Math.ceil(1000 * (noDays * 24));
+			subunit.fuelUST = Math.ceil(0.2 * (noDays * 24));
+			subunit.ammo = Math.ceil(2 * (noDays * 24));	
+			break;
+		case "AI":
+			subunit.fuel = Math.ceil(500 * (noDays * 24));
+			subunit.fuelUST = Math.ceil(0.1 * (noDays * 24));
+			subunit.ammo = Math.ceil(5 * (noDays * 24));	
+			break;
+		case "LI":
+			subunit.fuel = Math.ceil(250 * (noDays * 24));
+			subunit.fuelUST = Math.ceil(0.05 * (noDays * 24));
+			subunit.ammo = Math.ceil(3 * (noDays * 24));	
+			break;
+		case "AVN":
+			subunit.fuel = Math.ceil(3000 * (noDays * 24));
+			subunit.fuelUST = Math.ceil(0.6 * (noDays * 24));
+			subunit.ammo = Math.ceil(4 * (noDays * 24));	
 			break;
 	}
 	

@@ -65,16 +65,16 @@ Armd Sqn (16 CR2):
 Armd Inf (16 WR):
 
 	Ammo Pallets (per hour): 5
-	Fuel (Litres): 500 (0.2 UST)
+	Fuel (Litres): 500 (0.1 UST)
 	
 Light Inf:
 
 	Ammo Pallets (per hour): 3
-	Fuel (Litres): 250 (0.2 UST)
+	Fuel (Litres): 250 (0.05 UST)
 	
 Aviaiton:
 
 	Ammo Pallets (per hour): 4
-	Fuel (Litres): 3000 (0.2 UST)
+	Fuel (Litres): 3000 (0.6 UST)
 
 
