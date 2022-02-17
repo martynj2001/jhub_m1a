@@ -57,12 +57,12 @@ CSups (Personnel): (per person per day)
 CSups (Fuel & Ammo):
 --------------------
 
-Armd Sqn: 
+Armd Sqn (16 CR2): 
 
 	Ammo Pallets (per hour): 2
 	Fuel (Litres): 1000 (0.2 UST)
 
-Armd Inf:
+Armd Inf (16 WR):
 
 	Ammo Pallets (per hour): 5
 	Fuel (Litres): 500 (0.2 UST)
