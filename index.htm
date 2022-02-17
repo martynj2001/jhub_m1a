@@ -7,18 +7,89 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Linked Resources -->
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Bilbo|Marck+Script|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-	<!-- Add Bulma -->
-
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">   <!-- Font Awesomes - Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">                       <!-- BULMA CSS Styles -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>                                    <!-- AXIOS - incase I need to make API calls -->
 </head>
 
-<body>
+<body>  
+
+    <div class="container">
+
+        <h1 class="title is-3 has-text-centered">Mission Details</h1>
+        <label for="days">Duration (Days): </label>
+        <input type="number" name="days" class="input" id="duration" placeholder="Enter No. of Days" value ="0" min="0">
+
+        <label for="dest">Destination: </label>
+        <input type="text" name="dest" class="input" id="dest" placeholder="Enter Destination">
+
+
+        <h1 class="title is-3 has-text-centered">Vehicle Fleet</h1>
+        <form id="veh_data">
+            <label for="LRnum">Landrover: </label>
+            <input type="number" name="LRnum" class="input" id="LRnum" placeholder="Enter No. of LR">
+
+            <label for="SVnum">SV Utility: </label>
+            <input type="number" name="SVnum" class="input" id="SVnum"  placeholder="Enter No. of SV">
+            
+            <label for="CRnum">Challenger 2 MBT: </label>
+            <input type="number" name="CRnum" class="input" id="CRnum" placeholder="Enter No. of CR2">
+
+            <label for="WRnum">Warrior IFV: </label>
+            <input type="number" name="WRnum" class="input" id="WRnum" placeholder="Enter No. of WR">
+            <button class="button is-large">Calculate</button>
+        </form>
+
+        <h1 class="title is-3 has-text-centered">Personnel</h1>
+        <form id="pers_data">
+            <label for="pers_num">No. Personnel: </label>
+            <input type="number" name="pers_num" class="input" id="pers_num" step="5" min="0" value="0">
+            <button class="button is-large">Calculate</button>
+        </form>
+
+        <div class="results">
+            <table id="tablePers" class="table">
+                <tr>
+                    <th>Material</th>
+                    <th>Total Required</th>
+                    <th>Total Pallets</th>
+                </tr>
+                <tr>
+                    <td>Rations (24hr Packs)</td>
+                    <td id="noRat"></td>
+                    <td id="noRatPal"></td>
+                </tr>
+                <tr>
+                    <td>Drinking Water (Litres)</td>
+                    <td id="noDWat"></td>
+                    <td> N/A </td>
+                </tr>
+                <tr>
+                    <td>Cooking Water (Litres)</td>
+                    <td id="noCWat"></td>
+                    <td> N/A </td>
+                </tr>
+                <tr>
+                    <td>Total Water (Litres)</td>
+                    <td id="totWat"></td>
+                    <td id="totWatPal"></td>
+                </tr>
+                
+            </table> 
+        </div>
+
+        
+
+    </div>
+
+    
+
+
 	<script src="app.js" type="text/javascript"></script>
 </body>
 
 <footer>
-    <p>Created by MA JONES</p>
+    
 </footer>
 
