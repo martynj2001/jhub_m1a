@@ -3,11 +3,26 @@ console.log("Welcome to Mission Command!");
 
 const duration = document.querySelector("#duration");
 const pers = document.querySelector("#pers_data");
+const suData = document.querySelector("#su_data")
 const tablePers = document.querySelector("#tablePers");
-
-console.dir(tablePers);
+const tableEquip = document.querySelector("#tableEquip");
 
 let noDays = 0;
+let equip = {
+		// Make this an empty objectand populate as we go.
+		su_1: 	"",
+		su_2: 	"",
+		su_3: 	"",
+		fuelSu_1:	0,
+		ammoSu_1:	0,
+		fuelSu_2:	0,
+		ammoSu_2:	0,
+		fuelSu_3:	0,
+		ammoSu_3:	0,
+		ammoTotal:	0,
+		fuelTotal:	0,
+		total:		0
+};
 
 duration.addEventListener('input', function(){
     noDays = duration.value;
@@ -24,9 +39,19 @@ pers.addEventListener('input', function(e){
         //console.log (persCon);
         //displayPersCalc(persCon);
     }
-    
-    
+});
 
+suData.addEventListener("input", function(e){
+	if (noDays === 0){
+        alert("No Mission duration set!");
+    } else {
+        e.preventDefault();
+		equip.su_1 = 0;
+		equip.su_2 = 0;
+		equip.su_3 = 0;
+
+        calcSU(equip);
+    }
 });
 
 function displayPersCalc(data){
@@ -52,9 +77,9 @@ function calcPerson(noPers) {
     };
     person.rations = noPers * noDays;
     person.waterDrink = (noPers * 5) * noDays;
-    if (noPers <= 5) {                                //use individual water value
+    if (noPers <= 5) {									//use individual water value
         person.waterCook = (noPers * 10) * noDays;
-    } else {                                        //use subunit water value
+    } else {											//use subunit water value
         person.waterCook = noDays * 50;
     }  
     person.waterTotal = person.waterCook + person.waterDrink;
@@ -63,3 +88,13 @@ function calcPerson(noPers) {
     return person;
 }
 
+function calcSU(su, suData){
+	
+	switch (su){
+		case "Armoured":
+			
+			break;
+	}
+	
+	
+}
