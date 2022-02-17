@@ -50,8 +50,8 @@ suData.addEventListener("input", function(e){
 		// equip.su_1 = 0;
 		// equip.su_2 = 0;
 		// equip.su_3 = 0;
-
-        //calcSU(equip);
+        let su_1 = suData.elements.su_1.value;
+        console.log(su_1);//calcSU(equip);
     }
 });
 
