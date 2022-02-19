@@ -2,144 +2,236 @@
 <html lang="en">
 
 <head>
-    <title>Basic CSS Calculator</title>
+    <title>Basic Consumption Calculator</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Linked Resources -->
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">   <!-- Font Awesomes - Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">                       <!-- BULMA CSS Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">                     <!-- BULMA CSS Styles -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>                                    <!-- AXIOS - incase I need to make API calls -->
 </head>
 
 <body>  
+    <nav class="navbar is-fixed">
+        <div class="navbar-brand">
+            <div class="navbar-item is-flex-mobile">
+                <h3 class=" is-size-5-mobile is-size-4 has-text-centered has-text-white has-text-weight-bold" id="title">Battle Group Consumption Calculator</h3>
+            </div>
+        </div>
+    </nav> <!-- navbar -->
 
     <div class="container">
-
-		<section>
-			<h1 class="title is-3 has-text-centered">Mission Details</h1>
-	        <label for="days">Duration (Days): </label>
-	        <input type="number" name="days" class="input" id="duration" placeholder="Enter No. of Days" value ="0" min="0">
-	
-	        <label for="dest">Destination: </label>
-	        <input type="text" name="dest" class="input" id="dest" placeholder="Enter Destination">
-		</section>
-		
-		<section>
-			<h1 class="title is-3 has-text-centered">Battle Group Equipment</h1>
-	        <form id="su_data">
-	            <label for="su_1">Sub-Unit 1</label>
-				<div class="select" name="su_1">
-					<select id="su_1">
-						<option value="ARM">Armoured</option>
-						<option value="AI">Armoured Infantry</option>
-						<option value="LT">Light Infantry</option>
-						<option value="AVN">Aviation</option>
-					</select>
-				</div>
-				<label for="su_2">Sub-Unit 2</label>
-				<div class="select" name="su_2">
-					<select id="su_2">
-						<option value="ARM">Armoured</option>
-						<option value="AI">Armoured Infantry</option>
-						<option value="LT">Light Infantry</option>
-						<option value="AVN">Aviation</option>
-					</select>
-				</div>
-				<label for="su_3">Sub-Unit 3</label>
-				<div class="select" name="su_3">
-					<select id="su-_">
-						<option value="ARM">Armoured</option>
-						<option value="AI">Armoured Infantry</option>
-						<option value="LT">Light Infantry</option>
-						<option value="AVN">Aviation</option>
-					</select>
-				</div>
-					
-	        </form>
-		</section>
-		
-		 <div class="results">
-            <table id="tableEquip" class="table">
-                <tr>
-                    <th>Sub-Unit Type</th>
-                    <th>Fuel (Pallets)</th>
-					<th>Ammunition (Pallets)</th>
-                    <th>Total Pallets</th>
-                </tr>
-                <tr>
-                    <td>Armoured</td>
-                    <td id="fuelPal"></td>
-                    <td id="ammoPal"></td>
-					<td id="totalPal"></td>
-                </tr>
-                <tr>
-                    <td>Armoured Infantry</td>
-                    <td id="fuelPal"></td>
-                    <td id="ammoPal"></td>
-					<td id="totalPal"></td>
-                </tr>
-                <tr>
-                    <td>Light Infantry</td>
-                    <td id="fuelPal"></td>
-                    <td id="ammoPal"></td>
-					<td id="totalPal"></td>
-                </tr>
-                <tr>
-                    <td>Aviaiton</td>
-                    <td id="fuelPal"></td>
-                    <td id="ammoPal"></td>
-					<td id="totalPal"></td>
-                </tr>
-            </table> 
+        <div class="columns">
+            <div class="column is-one-fifth ">
+                <img class="image is-128x128"id="army_sym" src="images/army.png" alt="Logistics Icon">
+            </div>
+            <div class="columns is-four-fifths">
+                <p id="intro">A simple Battle Group consumption caluclator. Enter Mission duration and type of subunits to calculate Feul, Ammunition, Rations and Water requiredments.</p>
+            </div>
         </div>
+        
+        </p>
+		<section id="mission_details" class="block">
+            <h2 class="title is-3 has-text-centered">Mission Details</h1>
+            <div class="columns">
+                <div class="column is-one-third">
+                    <div class="notification is-warning is-light instr">
+                        <strong>Step 1:</strong> Enter the duration of the Battle Group mission in Days. 
+                        The consumptions date will update the totals table automatically as you enter data. 
+                        You can reset the data at any point by pressing the 'Reset Consumption Calculator' button.
+                    </div>
+                </div>
 
-		<section>
-			<h1 class="title is-3 has-text-centered">Personnel</h1>
-	        <form id="pers_data">
-	            <label for="pers_num">No. Personnel: </label>
-	            <input type="number" name="pers_num" class="input" id="pers_num" step="5" min="0" value="0">
-	            <button class="button is-large">Calculate</button>
-	        </form>
-		</section>
+                <div class="column is-two-thirds">
+                    <div class="table-container">
+                        <table id="tableTotal" class="table">
+                            <tr>
+                                <th>Sub-Unit</th>
+                                <th>Type</th>
+                                <th>Fuel (Litres)</th>
+                                <th>Water (Litres)</th>
+                                <th>Rations (Pallets)</th>
+                                <th>Ammo (Pallets)</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td id="suType"></td>
+                                <td id="fuelLitres"></td>
+                                <td id="waterLitres"></td>
+                                <td id="rationsPal"></td>
+                                <td id="ammoPal"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td id="suType"></td>
+                                <td id="fuelLitres"></td>
+                                <td id="waterLitres"></td>
+                                <td id="rationsPal"></td>
+                                <td id="ammoPal"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td id="suType"></td>
+                                <td id="fuelLitres"></td>
+                                <td id="waterLitres"></td>
+                                <td id="rationsPal"></td>
+                                <td id="ammoPal"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Battle Group<b></td>
+                                <td id="suType"></td>
+                                <td id="fuelLitres"></td>
+                                <td id="waterLitres"></td>
+                                <td id="rationsPal"></td>
+                                <td id="ammoPal"></td>
+                            </tr>
+                        </table> 
+                    </div>
+                    
+                    <div class="has-text-centered" id="btns">
+                        <button class="button is-warning" id="reset">Reset Consumption Calculator</button>
+                    </div>
+                </div>
+            </div> <!--columns-->
+            <label for="days">Duration (Days): </label>
+            <input type="number" name="days" class="input" id="duration" placeholder="Enter No. of Days" value ="1" min="0">
+		</section> <!--mission_details-->
+		
+		<section class="su_input block">
+            <h2 class="title is-3 has-text-centered">Battle Group Equipment</h1>
+            <div class="notification is-warning is-light instr">
+                <strong>Step 2:</strong> A Battle Group is a tactical combination of capabilities and is usually made up of three sub-units. 
+                Please enter the type of sub-units that will deploy (you can select from Armoured, Armoured Infantry, Light Infantry or Aviaiton). 
+            </div>
+            <div class="columns">
+                <div class="column is-one-third">
+                    <form id="su_data">
+                        <div class="block">
+                            <label for="su_1">Sub-Unit 1</label>
+                            <div class="select su_type" name="su_1">
+                                <select id="su_1">
+                                    <option value="" selected disabled hidden>Select Sub-Unit</option>
+                                    <option value="ARM">Armoured</option>
+                                    <option value="AI">Armoured Infantry</option>
+                                    <option value="LI">Light Infantry</option>
+                                    <option value="AVN">Aviation</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <label for="su_2">Sub-Unit 2</label>
+                            <div class="select" name="su_2">
+                                <select id="su_2">
+                                    <option value="" selected disabled hidden>Select Sub-Unit</option>
+                                    <option value="ARM">Armoured</option>
+                                    <option value="AI">Armoured Infantry</option>
+                                    <option value="LI">Light Infantry</option>
+                                    <option value="AVN">Aviation</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <label for="su_3">Sub-Unit 3</label>
+                            <div class="select" name="su_3">
+                                <select id="su_3">
+                                    <option value="" selected disabled hidden>Select Sub-Unit</option>
+                                    <option value="ARM">Armoured</option>
+                                    <option value="AI">Armoured Infantry</option>
+                                    <option value="LI">Light Infantry</option>
+                                    <option value="AVN">Aviation</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="column is-two-thirds">
+                    <table id="tableEquip" class="table">
+                        <tr>
+                            <th>Sub-Unit</th>
+                            <th>Type</th>
+                            <th>Fuel (Litres)</th>
+                            <th>Ammunition (Pallets)</th>
+                        </tr>
+                        <tr>
+                            <td>Sub-Unit 1</td>
+                            <td id="suType"></td>
+                            <td id="fuelPal"></td>
+                            <td id="ammoPal"></td>
+                        </tr>
+                        <tr>
+                            <td>Sub-Unit 2</td>
+                            <td id="suType"></td>
+                            <td id="fuelPal"></td>
+                            <td id="ammoPal"></td>
+                        </tr>
+                        <tr>
+                            <td>Sub-Unit 3</td>
+                            <td id="suType"></td>
+                            <td id="fuelPal"></td>
+                            <td id="ammoPal"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div> <!--columns -->
+        </section> <!-- su_input -->
 
-        <div class="results">
-            <table id="tablePers" class="table">
-                <tr>
-                    <th>Material</th>
-                    <th>Total Required</th>
-                    <th>Total Pallets</th>
-                </tr>
-                <tr>
-                    <td>Rations (24hr Packs)</td>
-                    <td id="noRat"></td>
-                    <td id="noRatPal"></td>
-                </tr>
-                <tr>
-                    <td>Drinking Water (Litres)</td>
-                    <td id="noDWat"></td>
-                    <td> N/A </td>
-                </tr>
-                <tr>
-                    <td>Cooking Water (Litres)</td>
-                    <td id="noCWat"></td>
-                    <td> N/A </td>
-                </tr>
-                <tr>
-                    <td>Total Water (Litres)</td>
-                    <td id="totWat"></td>
-                    <td id="totWatPal"></td>
-                </tr>
-            </table> 
-        </div>
+		<section class="per_input block">
+			<h2 class="title is-3 has-text-centered">Battle Group Personnel</h1>
+            <div class="notification is-warning is-light instr">
+                <strong>Step 3:</strong> Soldiers require Food and Water. Please enter the number of personnel deploying.
+            </div>
+            <div class="columns">
+                <div class="column is-one-third">
+                    <form id="pers_data">
+                        <label for="pers_num">No. Personnel: </label>
+                        <input type="number" name="pers_num" class="input" id="pers_num" step="5" min="0" value="0">
+                    </form>
+                </div>
+                <div class="column is-two-thirds">
+                    <table id="tablePers" class="table">
+                        <tr>
+                            <th>Material</th>
+                            <th>Total Required</th>
+                            <th>Total Pallets</th>
+                        </tr>
+                        <tr>
+                            <td>Rations (24hr Packs)</td>
+                            <td id="noRat"></td>
+                            <td id="noRatPal"></td>
+                        </tr>
+                        <tr>
+                            <td>Drinking Water (Litres)</td>
+                            <td id="noDWat"></td>
+                            <td> N/A </td>
+                        </tr>
+                        <tr>
+                            <td>Cooking Water (Litres)</td>
+                            <td id="noCWat"></td>
+                            <td> N/A </td>
+                        </tr>
+                        <tr>
+                            <td>Total Water (Litres)</td>
+                            <td id="totWat"></td>
+                            <td id="totWatPal"></td>
+                        </tr>
+                    </table> 
+                </div>
+            </div> <!-- columns -->
+        </section> <!-- Per_input -->
 
-    </div>
+    </div> <!-- container -->
 
 	<script src="app.js" type="text/javascript"></script>
 </body>
 
 <footer>
-    
+    <div class="notification is-danger">
+        <strong>Note:</strong> Numbers and calulations are representative and should not be used for real planning purposes!!
+    </div>
 </footer>
 

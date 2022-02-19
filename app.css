@@ -1,12 +1,56 @@
 /***********************************************/
 /* jhub_m1 - CSS Style Sheet                   */
 /***********************************************/
+
+body {
+    background-color: #d1daba;
+}
 .container {
     padding: 1rem;
 }
-.veh_input {
-    display: block;
+.navbar {
+    background-image: url("images/cam_bg.jpg");
+    padding-top: 5px;
 }
-#tablePers {
-    visibility: visable;
+#army_sym {
+    padding: 1px;
 }
+@media (max-width: 700px) {
+    #army_sym { 
+        visibility: hidden;
+    } 
+}
+#intro {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    padding: 5%;
+    text-align: center;
+    font-size: 25px;
+}
+@media (max-width: 480px) {
+    #intro { 
+        font-size: 18px;
+    } 
+}
+.table {
+    text-align: center;
+}
+#title {
+    font-family: 'Raleway', sans-serif;
+}
+#btns {
+    padding: 1%;
+}
+
+#reset {
+    border: c
+}
+.instr {
+    border: #5f6452 solid;
+}
+
+
+
+
+
+
