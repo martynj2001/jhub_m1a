@@ -11,28 +11,15 @@ JHub Module 1a - Creating a Website
 6. Responsive accros mulitple media types.
 7. Code checked through https://validator.w3.org/nu.
 
-CodePen.io link - https://codepen.io/Martynj2001/pen/zYPRgwg
-
 A Basic CSS Calculator
 -----------------------
 
-v1 - focus on ES Mean Distence between Failures (MDBF) - note that the values used are only representative of the actual SOHB values.
+v1 - focus on Logistics, simple planning tools for Armd BG, iLESPA values are completly made up and do not rtepresent actual SOHB plannign data.
 
-v2 - focus on Logistics, simple planning tools for Armd BG, iLESPA values are completly made up and do not rtepresent actual SOHB plannign data.
+v2 [if I get time!] - focus on ES Mean Distence between Failures (MDBF) - note that the values used are only representative of the actual SOHB values.
 
-ES DATA:
---------
+**** Numbers and calulations are completely made up and should not be used for real planning purposes!! ****
 
-							  Number of equipment types x anticipated usage (KM's)
-Probable number of failures = ----------------------------------------------------
-							 		   Mean value between failure (MVBF)
-
-MVBF Data:
------------
-LR: 20,700
-SV Utilty: 157,069
-CR2: 564
-WR: 1247
 
 LOGISTICS DATA:
 ---------------
@@ -79,4 +66,16 @@ Aviaiton:
 	Ammo Pallets (per hour): 4
 	Fuel (Litres): 3000 (0.6 UST)
 
+ES DATA:
+--------
 
+							  Number of equipment types x anticipated usage (KM's)
+Probable number of failures = ----------------------------------------------------
+							 		   Mean value between failure (MVBF)
+
+MVBF Data:
+-----------
+LR: 20,700
+SV Utilty: 157,069
+CR2: 564
+WR: 1247
